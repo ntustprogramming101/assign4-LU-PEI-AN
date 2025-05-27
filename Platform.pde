@@ -19,11 +19,14 @@ class Platform {
     player.ySpeed = 0; // Reset the player's ySpeed
     player.y = y - player.h + player.feetOffset; // Place the player on top of the platform
     player.y -= speed; // Move the player up with the platform
-    
+  }  
     // Practice4: Avoid sound being repeatedly played
-
-  }
-
+ void playPlatformSound(SoundFile sound) {
+    if (!playedSound) {  
+   sound.play(); 
+      playedSound = true;  
+    }
+ }
   void display() {
     image(platformImage, x, y, w, h); // Draw the platform
   }
